@@ -1,0 +1,42 @@
+{
+  "name": "fly-notify",
+  "version": "0.0.0",
+  "description": "Fly native OS notifications.",
+  "license": "MIT",
+  "repository": "https://github.com/MadcapJake/fly-notify",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "fly",
+    "notify"
+  ],
+  "scripts": {
+    "tape": "tape test/*.js",
+    "test": "npm run build && npm run tape | tspec",
+    "build": "earl compile -rvso ./ src/",
+    "deploy": "npm run test && git push origin master && npm publish",
+    "test-ci": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
+  },
+  "author": {
+    "name": "Jake Russo",
+    "email": "madcap.russo@gmail.com",
+    "url": "http://github.com/MadcapJake"
+  },
+  "dependencies": {
+    "fly-util": "^3.1.0",
+    "node-notifier": "^4.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^0.21.2",
+    "fly": "^0.2.2",
+    "fly-earl": "^0.3.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0"
+  },
+  "engines": {
+    "iojs": ">= 1.0.0",
+    "node": ">= 0.11.0"
+  }
+}

@@ -1,0 +1,15 @@
+provide: default, clear, build
+
+default = *->
+   yield this.tasks.clear()
+   yield this.tasks.build()
+
+clear = *->
+   yield this.clear("lib")
+
+build = *->
+   yield chain this:
+      @source("index.eg")
+      @earl()
+      @concat("index.js")
+      @target("lib")

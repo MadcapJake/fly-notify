@@ -1,0 +1,19 @@
+require:
+   path
+   node-notifier as notifier
+
+defaults = {
+   title = "fly-notify"
+   message = "fly-notify was used without a message"
+   icon = path.join{__dirname, "fly-logo.png"}
+}
+
+module.exports = @->
+   @filter("notify") with (src, var opts) @->
+      @log("Notifying...")
+      for option in defaults:
+         opts[option] = opts[option] or defaults[option]
+      notifier.notify(opts) with (err, response) ->
+         if err: print err
+         else: print response
+      @
