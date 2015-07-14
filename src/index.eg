@@ -16,4 +16,4 @@ module.exports = @->
       notifier.notify(opts) with (err, response) ->
          if err: print err
          else: print response
-      @
+      src
