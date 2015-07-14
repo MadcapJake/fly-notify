@@ -5,9 +5,6 @@
   "license": "MIT",
   "repository": "https://github.com/MadcapJake/fly-notify",
   "main": "index.js",
-  "files": [
-    "index.js"
-  ],
   "keywords": [
     "fly",
     "notify"
@@ -25,7 +22,6 @@
     "url": "http://github.com/MadcapJake"
   },
   "dependencies": {
-    "fly-util": "^3.1.0",
     "node-notifier": "^4.2.3"
   },
   "devDependencies": {

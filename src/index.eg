@@ -9,7 +9,7 @@ defaults = {
 }
 
 module.exports = @->
-   @filter("notify") with (src, var opts) @->
+   @filter("notify") with (src, var opts) ->
       @log("Notifying...")
       for option in defaults:
          opts[option] = opts[option] or defaults[option]
