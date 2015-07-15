@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [Notify](https://github.com/MadcapJake/fly-notify) plugin for _[Fly][fly]_.
+> [node-notifier](https://github.com/mikaelbr/node-notifier) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -13,7 +13,10 @@
 [![][mit-badge]][mit]
 
 ## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
+> Check out the [documentation](https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults) to see the available options.
+
+> This plugin also allows you to specify a [devicons](http://vorillaz.github.io/devicons/#/dafont) icon by prefixing the
+icon that you want to use with `dev:` and then the plugin will build a path to the icon's svg file.  I plan on adding octicons as well.
 
 ### Install
 
@@ -23,10 +26,38 @@ npm install -D fly-notify
 
 ### Example
 
+#### ES6
 ```js
 export default function* () {
-  yield ...
+  yield this.clear("build")
+  yield this
+    .source(paths.scripts)
+    .babel({ stage: 0 })
+    .uglify()
+    .concat("all.min.js")
+    .notify({
+      title: "Fly Default",
+      message: "Completed default task",
+      icon: "dev:code_badge"
+    })
+    .target("build/js")
 }
+```
+#### Earl Grey
+```earl-grey
+provide: default
+default = *->
+  yield this.clear("build")
+  yield chain this:
+    @source("src/*.eg")
+    @earl()
+    @concat("index.js")
+    @notify with {
+      title = "Fly Default"
+      message = "Completeled default task."
+      icon = "dev:code_badge"
+    }
+    @target("lib")
 ```
 
 # License
