@@ -8,7 +8,7 @@ defaults = {
    icon = path.join{__dirname, "fly-logo.png"}
 }
 
-;; Checks if string has "dev" as prefix
+;; Checks if icon prop has "dev" as prefix
 ;; If so, returns path to devicons svg file
 ;; TODO: Expand to other icon sets
 devicon = str ->
