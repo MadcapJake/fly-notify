@@ -23,6 +23,7 @@
     "url": "http://github.com/MadcapJake"
   },
   "dependencies": {
+    "devicons": "^1.8.0",
     "node-notifier": "^4.2.3"
   },
   "devDependencies": {
