@@ -9,11 +9,8 @@ defaults = {
 }
 
 module.exports = @->
-   @filter("notify") with (src, var opts) ->
-      @log("Notifying...")
-      for option in defaults:
-         opts[option] = opts[option] or defaults[option]
-      notifier.notify(opts) with (err, response) ->
-         if err: print err
-         else: print response
-      src
+   @notify = (var opts = {=}) @->
+      for option in defaults: opts[option] = opts[option] or defaults[option]
+      @defer(notifier.notify(opts, cb.bind(@))) where cb = (err, response) @->
+         if err: @err(err)
+      @
