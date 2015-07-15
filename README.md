@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [node-notifier](https://github.com/mikaelbr/node-notifier) plugin for _[Fly][fly]_.
+> [node-notifier][notify] plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -18,8 +18,14 @@
 > This plugin also allows you to specify a [devicons](http://vorillaz.github.io/devicons/#/dafont) icon by prefixing the
 icon that you want to use with `dev:` and then the plugin will build a path to the icon's svg file.  I plan on adding octicons as well.
 
-### Install
+### Requirements
+Here are [node-notifier][notify]'s requirements:
+- **Mac OS X**: >= 10.8 or Growl if earlier.
+- **Linux**: notify-osd installed (Ubuntu should have this by default)
+- **Windows**: >= 8, task bar balloon if earlier or Growl if that is installed.
+- **General Fallback**: Growl
 
+### Install
 ```a
 npm install -D fly-notify
 ```
@@ -65,6 +71,7 @@ default = *->
 [MIT][mit] © [Jake Russo][author] et [al][contributors]
 
 
+[notify]:       https://github.com/mikaelbr/node-notifier
 [mit]:          http://opensource.org/licenses/MIT
 [author]:       http://github.com/MadcapJake
 [contributors]: https://github.com/MadcapJake/fly-notify/graphs/contributors
