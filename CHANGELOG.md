@@ -6,7 +6,12 @@
 
 ## Changelog
 
- * 0.0.0
+ * [0.1.4](v014)
+ * [0.0.0](v000)
+
+### v0.1.4
+
+* Bugfix: Include `earl-grey` dependency.
 
 ### v0.0.0
 

@@ -16,14 +16,7 @@
 > Check out the [documentation](https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults) to see the available options.
 
 > This plugin also allows you to specify a [devicons](http://vorillaz.github.io/devicons/#/dafont) icon by prefixing the
-icon that you want to use with `dev:` and then the plugin will build a path to the icon's svg file.  I plan on adding octicons as well.
-
-### Requirements
-Here are [node-notifier][notify]'s requirements:
-- **Mac OS X**: >= 10.8 or Growl if earlier.
-- **Linux**: notify-osd installed (Ubuntu should have this by default)
-- **Windows**: >= 8, task bar balloon if earlier or Growl if that is installed.
-- **General Fallback**: Growl
+icon that you want to use with `dev:`. [octicons](https://octicons.github.com/) support planned as well.
 
 ### Install
 ```a
@@ -65,6 +58,14 @@ default = *->
     }
     @target("lib")
 ```
+
+### Requirements
+Here are [node-notifier][notify]'s requirements:
+- **Mac OS X**: >= 10.8 or Growl if earlier.
+- **Linux**: notify-osd installed (Ubuntu should have this by default)
+- **Windows**: >= 8, task bar balloon if earlier or Growl if that is installed.
+- **General Fallback**: Growl
+
 
 # License
 
