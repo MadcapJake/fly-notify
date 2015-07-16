@@ -11,9 +11,9 @@
     "notify"
   ],
   "scripts": {
+    "lint": "eslint *.js",
     "tape": "tape test/*.js",
-    "test": "npm run build && npm run tape | tspec",
-    "build": "earl compile -rvso ./ src/",
+    "test": "npm run lint && npm run tape | tspec",
     "fly": "fly",
     "deploy": "npm run test && git push origin master && npm publish",
     "test-ci": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
@@ -32,13 +32,11 @@
   ],
   "dependencies": {
     "devicons": "^1.8.0",
-    "earlgrey-runtime": "0.0.9",
     "node-notifier": "^4.2.3"
   },
   "devDependencies": {
     "eslint": "^0.21.2",
     "fly": "^0.3.3",
-    "fly-earl": "^0.3.0",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
