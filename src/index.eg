@@ -23,5 +23,5 @@ module.exports = @->
       for option in defaults: opts[option] = opts[option] or defaults[option]
       opts.icon = devicon: opts.icon
       @defer(notifier.notify(opts, cb.bind(@))) where cb = (err, response) @->
-         if err: @err(err)
+         if err: print err
       @
