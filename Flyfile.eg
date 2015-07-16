@@ -5,11 +5,11 @@ default = *->
    yield this.tasks.build()
 
 clear = *->
-   yield this.clear("lib")
+   yield this.clear("index.js")
 
 build = *->
    yield chain this:
-      @source("index.eg")
+      @source("src/index.eg")
       @earl()
       @concat("index.js")
-      @target("lib")
+      @target(".")
