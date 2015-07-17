@@ -19,14 +19,13 @@ function devicon (str) {
 }
 
 module.exports = function () {
-  this.notify = function (opts) {
+  this.notify = this.notify || function (opts) {
     opts = opts || {}
     for (var opt in defaults) { opts[opt] = opts[opt] || defaults[opt] }
     opts.icon = devicon(opts.icon)
-    this.defer(notifier.notify(opts, function (err, response) {
-      if (err) { this.err(err) }
-      if (response) { this.debug(response) }
-    }.bind(this)))
+    try {
+      notifier.notify(opts, function (e, response) { if (e) { throw e } })
+    } catch (e) { throw e }
     return this
   }
 }
