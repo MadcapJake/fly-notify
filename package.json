@@ -32,7 +32,8 @@
   ],
   "dependencies": {
     "devicons": "^1.8.0",
-    "node-notifier": "^4.2.3"
+    "node-notifier": "^4.2.3",
+    "object-assign": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^0.21.2",
