@@ -1,31 +1,26 @@
 const path = require("path")
+const assign = require("object-assign")
 const notifier = require("node-notifier")
 
-const defaults = {
-  title: "Fly",
-  message: "Task filters completed.",
-  icon: path.join(__dirname, "fly-logo.png")
-}
-
-function devicon (str) {
-  if (str.slice(0, 3) === "dev") {
-    return path.join(
-      process.cwd(),
-      "node_modules/fly-notify/node_modules/devicons/!SVG/",
-      str.slice(4) + ".svg")
-  } else {
-    return str
-  }
-}
-
 module.exports = function () {
-  this.notify = this.notify || function (opts) {
-    opts = opts || {}
-    for (var opt in defaults) { opts[opt] = opts[opt] || defaults[opt] }
-    opts.icon = devicon(opts.icon)
-    try {
-      notifier.notify(opts, function (e) { if (e) { throw e } })
-    } catch (e) { throw e }
+  this.notify = function (options) {
+    notifier.notify(assign(options, {
+      title: "Fly",
+      message: "Task completed.",
+      icon: options.icon
+        ? devicon(options.icon)
+        : path.join(__dirname, "fly-logo.png")
+    }),
+    function (error, response) {
+      if (error) this.error(error)
+      if (response) this.debug(response)
+    }.bind(this))
     return this
   }
+}
+
+function devicon (s) {
+  const ICONS_PATH = "node_modules/fly-notify/node_modules/devicons/!SVG/"
+  return s.slice(0, 3) === "dev"
+    ? path.join(process.cwd(), ICONS_PATH, s.slice(4) + ".svg") : s
 }
