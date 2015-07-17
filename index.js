@@ -24,7 +24,7 @@ module.exports = function () {
     for (var opt in defaults) { opts[opt] = opts[opt] || defaults[opt] }
     opts.icon = devicon(opts.icon)
     try {
-      notifier.notify(opts, function (e, response) { if (e) { throw e } })
+      notifier.notify(opts, function (e) { if (e) { throw e } })
     } catch (e) { throw e }
     return this
   }
