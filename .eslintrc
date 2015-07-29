@@ -3,12 +3,14 @@
     "node": true
   },
   "rules": {
-    "semi": [2, "never"],
+    "semi": [ 2, "never" ],
     "curly": 0,
-    "strict": 0
+    "strict": 0,
+    "no-use-before-define": 0,
+    "comma-dangle": [ 2, "always-multiline" ]
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
     "blockBindings": true
-  },
+  }
 }
