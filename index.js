@@ -1,20 +1,23 @@
 const path = require("path")
 const assign = require("object-assign")
 const notifier = require("node-notifier")
+const defaults = {
+  title: "Fly",
+  message: "Task completed.",
+  icon: path.join(__dirname, "fly-logo.png"),
+}
 
 module.exports = function () {
   this.notify = function (options) {
-    notifier.notify(assign(options, {
-      title: "Fly",
-      message: "Task completed.",
-      icon: options.icon
-        ? devicon(options.icon)
-        : path.join(__dirname, "fly-logo.png")
-    }),
-    function (error, response) {
-      if (error) this.error(error)
-      if (response) this.debug(response)
-    }.bind(this))
+    if (options.icon) options.icon = devicon(options.icon)
+    this.options = assign({}, defaults, options)
+    notifier.notify(
+      this.options,
+      function (error, response) {
+        if (error) this.error(error)
+        if (response) this.debug(response)
+      }.bind(this)
+    )
     return this
   }
 }

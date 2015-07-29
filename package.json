@@ -28,6 +28,11 @@
       "name": "Jorge Bucaran",
       "email": "jbucaran@me.com",
       "url": "http://github.com/bucaran"
+    },
+    {
+      "name": "Roger Steve Ruiz",
+      "email": "hi@rog.gr",
+      "url": "http://github.com/rogeruiz"
     }
   ],
   "dependencies": {
